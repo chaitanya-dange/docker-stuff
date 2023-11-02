@@ -1,0 +1,4 @@
+docker run -d --name [nameOfContainer] -e MONGO_INITDB_ROOT_USERNAME=[username] -e MONGO_INITDB_ROOT_PASSWORD=[desired-password] -p 27017:27017 mongo
+
+
+mongoclient 
