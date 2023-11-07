@@ -1,0 +1,21 @@
+Question:  what is differenct between  
+FROM node:17-alpine  and     FROM node:17-alpine
+WORKDIR /app                 WORKDIR /usr/src/app  
+
+in docker file ?
+:
+In a Dockerfile, the FROM instruction specifies the base image to use for the Docker image you're building, and the WORKDIR instruction sets the working directory within the container where subsequent commands will be executed. The primary difference between the two lines you provided is the directory you set as the working directory:
+
+FROM node:17-alpine WORKDIR /app:
+
+This Dockerfile starts with the base image node:17-alpine, which is based on the Alpine Linux distribution and contains Node.js 17.
+The WORKDIR /app instruction sets the working directory to /app within the container.
+FROM node:17-alpine WORKDIR /usr/src/app:
+
+This Dockerfile also starts with the base image node:17-alpine.
+However, the WORKDIR /usr/src/app instruction sets the working directory to /usr/src/app within the container.
+The choice of working directory can affect how you organize your application's files and where commands like COPY, RUN, and CMD are executed within the container.
+
+You might use /app as your working directory when you want a simple, top-level directory for your application. Conversely, you might use /usr/src/app if you want to follow a more standard directory structure or are using a base image that expects application code to be located in that specific directory.
+
+In summary, the primary difference is the path you choose for the working directory within the container. Your choice should align with your application's requirements and the conventions of the base image you're using.
